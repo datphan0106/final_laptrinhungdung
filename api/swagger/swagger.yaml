@@ -1,0 +1,312 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server Book server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key special-key to test the authorization     filters."
+  version: "1.0.0"
+  title: "Swagger Book"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "CRUD"
+  description: "Everything about your Book"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "Author"
+  description: "Access to information of Author"
+- name: "Book"
+  description: "Access to information of Book"
+  externalDocs:
+    description: "Find out more about our app"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /Author:
+    post:
+      tags:
+      - "Author"
+      summary: "Add Author"
+      description: "Add an author to database"
+      operationId: ""
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Add Author"
+        required: true
+        schema:
+          $ref: ""
+      responses:
+        "405":
+          description: "Invalid input"
+  /Author/FindAllAuthor:
+    get:
+      tags:
+      - "Author"
+      summary: "Finds All Author"
+      description: "When entering the path, all author"
+      operationId: "findPetsByStatus"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "status"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+          default: "available"
+        collectionFormat: "multi"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: ""
+        "400":
+          description: "Invalid status value"
+  /Author/FindAnAuthor:
+    get:
+      tags:
+      - "Author"
+      summary: "Finds An Author"
+      description: "Enter the ID will find information Author"
+      operationId: ""
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "status"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+          default: "available"
+        collectionFormat: "multi"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: ""
+        "400":
+          description: "Invalid status value"
+  /Author/UpdateAuthor:
+    put:
+      tags:
+      - "Author"
+      summary: "Update an information of Author"
+      description: "Can edit any information of Author"
+      operationId: "updateAuthor"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Update Author"
+        required: true
+        schema:
+          $ref: ""
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Author not found"
+        "405":
+          description: "Validation exception"
+  /Author/DeleteAuthor:
+    delete:
+      tags:
+      - "Author"
+      summary: "Delete with id of an Author"
+      description: "Enter the author ID that you want to delete"
+      operationId: ""
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Delete Author"
+        required: true
+        schema:
+          $ref: ""
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Order not found"
+  /Book:
+    post:
+      tags:
+      - "Book"
+      summary: "Add A Book"
+      description: "Add a book to database"
+      operationId: ""
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Add Book"
+        required: true
+        schema:
+          $ref: ""
+      responses:
+        "405":
+          description: "Invalid input"
+  /Book/FindAllBook:
+    get:
+      tags:
+      - "Book"
+      summary: "Finds All Book"
+      description: "When entering the path, all book"
+      operationId: ""
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "status"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+          default: "available"
+        collectionFormat: "multi"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: ""
+        "400":
+          description: "Invalid status value"
+  /Book/FindABook:
+    get:
+      tags:
+      - "Book"
+      summary: "Finds A Book"
+      description: "Enter the ID will find information Book"
+      operationId: ""
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "status"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+          default: "available"
+        collectionFormat: "multi"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: ""
+        "400":
+          description: "Invalid status value"
+  /Book/UpdateBook:
+    put:
+      tags:
+      - "Book"
+      summary: "Update an information of book"
+      description: "Can edit any information of Book"
+      operationId: ""
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Update Book"
+        required: true
+        schema:
+          $ref: ""
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+        "405":
+          description: "Validation exception"
+  /Book/DeleteBook:
+    delete:
+      tags:
+      - "Book"
+      summary: "Delete with id of an Book"
+      description: "Enter the Book ID that you want to delete"
+      operationId: ""
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Delete Book"
+        required: true
+        schema:
+          $ref: ""
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Order not found"
